@@ -1,23 +1,28 @@
-import PlayerCard from "./PlayerCard"
+import PlayerCard from "./PlayerCard";
+import React, { useState } from "react";
 
-
-const CardContainer = ({data}) => {
-    
+const CardContainer = ({ data }) => {
+  console.log(data);
+  const [afra, setAfra] = useState("");
+  console.log(afra)
   return (
-    
-    <div className="container"> 
-    <input type="text" placeholder="Search Player..."/>
-    
-    <div className="cardContainer">
-        {data.map(({name,img,statistics},index) =>  
-     <PlayerCard name= {name} img= {img}  />
-    )} 
-    </div>
-   
-    
-     
-    </div>
-  )
-}
+    <div className="container" onChange={(e) => setAfra(e.target.value)}>
+      <input type="text" placeholder="Search Player..." />
 
-export default CardContainer
+      <div className="cardContainer">
+        {data
+          .filter((player) => player.name.includes(afra))
+          .map(({ name, img, statistics }, index) => (
+            <PlayerCard
+              key={index}
+              name={name}
+              img={img}
+              statistics={statistics}
+            />
+          ))}
+      </div>
+    </div>
+  );
+};
+
+export default CardContainer;
