@@ -1,7 +1,14 @@
+import CardContainer from "./components/CardContainer"
+import Header from "./components/Header"
+import {data} from "./helper/data"
+import "./App.css"
 function App() {
+  console.log(data)
   return (
     <div className="App">
-      <h1>Hello React</h1>
+      <Header/>
+      <CardContainer/>
+    
     </div>
   )
 }
