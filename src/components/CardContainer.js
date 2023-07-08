@@ -1,7 +1,8 @@
 import PlayerCard from "./PlayerCard"
 
 
-const CardContainer = () => {
+const CardContainer = (data) => {
+    
   return (
     <div className="container"> 
     <input type="text" placeholder="Search Player..."/>
